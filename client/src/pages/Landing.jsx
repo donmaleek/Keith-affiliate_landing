@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
-  X, Clock, Calendar, Users, MapPin, Youtube, Instagram, Twitter,
-  TrendingUp, Award, Shield, Zap, Target, Crown, Flame, Sparkles,
-  ArrowRight, CheckCircle, Star, Gift, Rocket, Diamond, Medal,
-  Phone, Mail, Share2, ChevronRight, Play, Download, BookOpen
+  X, Clock, Calendar, Users, Youtube, Instagram, Twitter,
+  Shield, Zap, Target, Crown, Sparkles,
+  ArrowRight, CheckCircle, Star, Gift, Rocket,
+  Phone, Mail, Download
 } from "lucide-react";
 
 export default function Landing() {
@@ -88,11 +88,11 @@ export default function Landing() {
 
         {/* Main Grid - Two Columns */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Persuasive Content */}
+          {/* Right Column - Persuasive Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="space-y-8"
+            className="space-y-8 lg:order-last"
           >
             {/* Value Proposition with Numbers */}
             <div className="bg-gradient-to-r from-green-500/20 to-transparent p-8 rounded-2xl border-l-4 border-green-400">
@@ -195,11 +195,11 @@ export default function Landing() {
             </div>
           </motion.div>
 
-          {/* Right Column - High-Conversion Card */}
+          {/* Left Column - High-Conversion Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="sticky top-24"
+            className="sticky top-24 lg:order-first"
           >
             <div className="bg-zinc-900 backdrop-blur-xl border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl shadow-green-500/10">
               {/* Card Header with Live Badge */}
@@ -221,19 +221,12 @@ export default function Landing() {
                 <div className="relative">
                   <div className="w-full aspect-[3/4] bg-gradient-to-br from-green-400/30 to-green-600/30 flex items-center justify-center">
                     <img
-                      src="/keith1.png"
+                      src={`${import.meta.env.BASE_URL}keith1.png`}
                       alt="Keith Muoki Live Training"
                       className="w-full h-full object-contain opacity-80"
                     />
                   </div>
                   
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-                      <Play className="text-black ml-1" size={32} />
-                    </div>
-                  </div>
-
                   {/* Gradient Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
                   
@@ -337,6 +330,23 @@ export default function Landing() {
                   <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                   <span className="relative flex items-center justify-center gap-2">
                     CLAIM YOUR SEAT NOW - KES 1,000
+                    <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                  </span>
+                </motion.a>
+
+                <div className="text-center text-sm text-zinc-500 my-3">— or pay with card —</div>
+
+                <motion.a
+                  href="https://calendly.com/keithmuoki/affiliate-marketing-masterclass-keith-muoki-stripe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="block w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-lg py-5 rounded-xl shadow-2xl shadow-indigo-500/20 relative overflow-hidden group text-center"
+                >
+                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  <span className="relative flex items-center justify-center gap-2">
+                    PAY WITH STRIPE (CARD/VISA)
                     <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                   </span>
                 </motion.a>
